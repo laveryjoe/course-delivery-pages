@@ -1,0 +1,2674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Dynamic Meta Tags - Updated by JavaScript -->
+    <title>Self Host Revolution - Build Software Products with AI</title>
+    <meta name="title" content="Self Host Revolution - Build Software Products with AI">
+    <meta name="description" content="Learn to build software products using AI as your coding partner. You'll leave with a $6 server, a professional course delivery page, and the skills to build more products.">
+    <meta name="keywords" content="self hosting, AI coding, Claude Code, VPS, server setup, course platform, Joe Lee">
+    <meta name="author" content="Joe Lee">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Joe Lee - Self Host Revolution">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="Self Host Revolution - Build Software Products with AI">
+    <meta property="og:description" content="Learn to build software products using AI as your coding partner. You'll leave with a $6 server, a professional course delivery page, and the skills to build more products.">
+    <meta property="og:image" content="">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Self Host Revolution by Joe Lee">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="">
+    <meta property="twitter:title" content="Self Host Revolution - Build Software Products with AI">
+    <meta property="twitter:description" content="Learn to build software products using AI as your coding partner.">
+    <meta property="twitter:image" content="">
+    <meta property="twitter:image:alt" content="Self Host Revolution by Joe Lee">
+    <meta property="twitter:creator" content="@joelee">
+    <meta property="twitter:site" content="@joelee">
+
+    <meta name="theme-color" content="#0046dd">
+
+    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+/* ===================================
+   CSS CUSTOM PROPERTIES (THEME SYSTEM)
+   =================================== */
+:root {
+    --bg-primary: #fafafa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f8fafc;
+    --bg-quaternary: #f1f5f9;
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+    --text-tertiary: #6b7280;
+    --text-quaternary: #9ca3af;
+    --border-primary: #e5e5e5;
+    --border-secondary: #e2e8f0;
+    --border-tertiary: #cbd5e1;
+    --blue-primary: #0046dd;
+    --blue-secondary: #eff6ff;
+    --blue-tertiary: #dbeafe;
+    --blue-quaternary: #bfdbfe;
+    --shadow-primary: rgba(0, 0, 0, 0.1);
+    --shadow-secondary: rgba(0, 0, 0, 0.05);
+}
+
+.dark-theme {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --bg-quaternary: #475569;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #94a3b8;
+    --text-quaternary: #64748b;
+    --border-primary: #334155;
+    --border-secondary: #475569;
+    --border-tertiary: #64748b;
+    --blue-primary: #0046dd;
+    --blue-secondary: #1e293b;
+    --blue-tertiary: #334155;
+    --blue-quaternary: #475569;
+    --shadow-primary: rgba(0, 0, 0, 0.3);
+    --shadow-secondary: rgba(0, 0, 0, 0.2);
+}
+
+/* ===================================
+   BASE STYLES
+   =================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.65;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    font-size: 16px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 { font-family: 'Satoshi', sans-serif; color: var(--text-primary); margin: 0; }
+h1 { font-size: 2.25rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1.2; }
+h2 { font-size: 1.875rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; }
+h3 { font-size: 1.5rem; font-weight: 500; letter-spacing: -0.01em; line-height: 1.3; }
+h4 { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.005em; line-height: 1.4; }
+p { font-size: 1rem; font-weight: 400; line-height: 1.7; color: var(--text-secondary); margin: 0 0 1rem 0; }
+
+/* ===================================
+   LAYOUT COMPONENTS
+   =================================== */
+.header {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.header-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    height: 48px;
+    width: auto;
+    transition: opacity 0.2s;
+}
+.logo:hover { opacity: 0.8; }
+.logo.light { display: block; }
+.logo.dark { display: none; }
+.dark-theme .logo.light { display: none; }
+.dark-theme .logo.dark { display: block; }
+
+.nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    height: 100%;
+}
+.nav a {
+    color: var(--text-tertiary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.005em;
+    transition: color 0.2s;
+}
+.nav a:hover { color: var(--blue-primary); }
+
+/* Main Layout */
+.main {
+    max-width: 90%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    gap: 4rem;
+    align-items: start;
+}
+
+.main.sidebar-right { grid-template-columns: 1fr 380px; }
+.main.sidebar-left { grid-template-columns: 380px 1fr; }
+.main.sidebar-left .content { order: 2; }
+.main.sidebar-left .sidebar { order: 1; }
+
+.content {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 1px 3px var(--shadow-primary);
+    transition: background-color 0.3s ease;
+}
+
+.sidebar {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px var(--shadow-primary);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+    min-width: 320px;
+    transition: background-color 0.3s ease;
+    overflow-y: auto;
+    max-height: calc(100vh - 4rem);
+}
+
+/* ===================================
+   VIDEO & MEDIA
+   =================================== */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    background: var(--bg-tertiary);
+}
+.video-container img,
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.video-container img { object-fit: cover; }
+.video-container video { object-fit: contain; }
+
+/* ===================================
+   TABS
+   =================================== */
+.tabs { margin-bottom: 2rem; }
+.tab-buttons {
+    display: flex;
+    border-bottom: 1px solid var(--border-primary);
+    margin-bottom: 1.5rem;
+}
+.tab-button {
+    background: none;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.005em;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+.tab-button.active {
+    color: var(--blue-primary);
+    border-bottom-color: var(--blue-primary);
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ===================================
+   TRANSCRIPT
+   =================================== */
+.transcript-list { list-style: none; }
+.transcript-item {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    background: var(--bg-tertiary);
+    border-radius: 6px;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.transcript-item:hover {
+    border-left-color: var(--blue-primary);
+    background: var(--bg-quaternary);
+}
+.transcript-item.hidden { display: none; }
+.highlight {
+    background: #ffeb3b;
+    color: #000;
+    font-weight: 600;
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+}
+.transcript-timestamp {
+    font-weight: 600;
+    color: var(--blue-primary);
+    font-size: 0.75rem;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+.transcript-text {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ===================================
+   LESSON NAVIGATION
+   =================================== */
+.up-next { margin-top: 3rem; }
+.up-next h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.next-video {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+.next-video:hover { background: var(--bg-quaternary); }
+.next-video-thumb {
+    width: 120px;
+    height: 68px;
+    background: linear-gradient(135deg, var(--blue-primary), #3b82f6);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+.next-video-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.next-video-content p {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ===================================
+   EPISODE/LESSON LISTS
+   =================================== */
+.episode-section {
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-primary);
+    overflow: hidden;
+}
+
+.module-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-primary);
+    transition: all 0.2s;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+.module-header:hover { background: var(--bg-tertiary); }
+.module-header.active { background: var(--bg-tertiary); }
+
+.module-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.module-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--blue-primary);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.module-arrow {
+    transition: transform 0.2s ease-in-out;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+}
+.module-header.active .module-arrow { transform: rotate(90deg); }
+
+.module-lessons {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: var(--bg-secondary);
+}
+.module-lessons.expanded {
+    max-height: 2000px;
+    transition: max-height 0.5s ease-in;
+}
+
+.episode-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.episode-list li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: block;
+}
+
+.episode-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+    border-radius: 6px;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.episode-link:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border-color: var(--border-secondary);
+}
+.episode-link.current {
+    background: var(--blue-primary) !important;
+    color: white !important;
+    font-weight: 500;
+    border-color: var(--blue-primary);
+}
+
+/* Coming Soon Lesson Styles */
+.episode-link.coming-soon {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.episode-link.coming-soon:hover {
+    background: transparent;
+    color: var(--text-secondary);
+    border-color: transparent;
+}
+.coming-soon-badge {
+    font-size: 0.65rem;
+    background: var(--bg-quaternary);
+    color: var(--text-tertiary);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    margin-left: auto;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Play Icon */
+.play-icon {
+    width: 18px;
+    height: 18px;
+    background: var(--blue-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 10px;
+    flex-shrink: 0;
+}
+.episode-link.current .play-icon {
+    background: white;
+    color: var(--blue-primary);
+}
+.episode-link.coming-soon .play-icon {
+    background: var(--bg-quaternary);
+    color: var(--text-quaternary);
+}
+
+.lesson-title {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.lesson-duration {
+    font-size: 0.75rem;
+    font-weight: 400;
+    opacity: 0.8;
+    margin-left: 0.5rem;
+    color: var(--text-tertiary);
+}
+.episode-link.current .lesson-duration {
+    color: rgba(255, 255, 255, 0.8) !important;
+    opacity: 1;
+}
+
+/* ===================================
+   CONTENT STYLES
+   =================================== */
+.episode-notes-content { line-height: 1.7; }
+.episode-notes-content h1 { font-size: 1.5rem; font-weight: 600; margin: 1.5rem 0 1rem 0; }
+.episode-notes-content h2 { font-size: 1.25rem; font-weight: 600; margin: 1.25rem 0 0.75rem 0; }
+.episode-notes-content h3 { font-size: 1.125rem; font-weight: 500; margin: 1rem 0 0.5rem 0; }
+.episode-notes-content p { margin: 0 0 1rem 0; }
+.episode-notes-content ul,
+.episode-notes-content ol { margin: 0 0 1rem 1.5rem; color: var(--text-secondary); }
+.episode-notes-content li { margin: 0.25rem 0; }
+.episode-notes-content strong { font-weight: 600; color: var(--text-primary); }
+.episode-notes-content code {
+    background: var(--bg-tertiary);
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    color: #e11d48;
+}
+.episode-notes-content a { color: var(--blue-primary); text-decoration: none; }
+.episode-notes-content a:hover { text-decoration: underline; }
+
+.learning-objectives {
+    background: var(--blue-secondary);
+    border: 1px solid var(--blue-primary);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+.learning-objectives h4 {
+    color: var(--blue-primary);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.learning-objectives h4 .target-icon { margin-right: 0.5rem; }
+.learning-objectives ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    list-style: none;
+}
+.learning-objectives li {
+    color: var(--text-primary);
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 0.5rem;
+}
+.learning-objectives li:before {
+    content: '\2022';
+    position: absolute;
+    left: -0.75rem;
+    color: var(--blue-primary);
+}
+
+/* ===================================
+   LESSON COMPLETION FEATURE
+   =================================== */
+.lesson-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.lesson-header > div:first-child {
+    flex: 1;
+}
+
+.lesson-completion-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.completion-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    user-select: none;
+    transition: color 0.2s;
+}
+
+.completion-checkbox {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 26px;
+}
+
+.completion-checkbox input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkbox-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    transition: all 0.3s ease;
+    border-radius: 13px;
+    border: 1px solid var(--border-secondary);
+}
+
+.checkbox-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    top: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.completion-checkbox input:checked + .checkbox-slider {
+    background-color: #10b981;
+    border-color: #10b981;
+}
+
+.completion-checkbox input:checked + .checkbox-slider:before {
+    transform: translateX(22px);
+}
+
+.completion-checkbox input:checked ~ .completion-label {
+    color: #10b981;
+}
+
+/* Progress indicator update */
+.progress-stats {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    border: 1px solid var(--border-primary);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.progress-header h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.progress-percentage {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--blue-primary);
+}
+
+.progress-bar {
+    background: var(--bg-quaternary);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, var(--blue-primary) 0%, #10b981 100%);
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+}
+
+/* Completed lesson indicators */
+.episode-link.completed .play-icon,
+.mobile-lesson-item.completed .play-icon {
+    background: #10b981 !important;
+    position: relative;
+    font-size: 0 !important;
+    line-height: 0 !important;
+}
+
+.episode-link.completed .play-icon *,
+.mobile-lesson-item.completed .play-icon * {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.episode-link.completed .play-icon:before,
+.mobile-lesson-item.completed .play-icon:before {
+    content: '' !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    background-color: #10b981 !important;
+    border-radius: 50% !important;
+}
+
+.episode-link.completed .play-icon:after {
+    content: '\2713' !important;
+    color: white !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    display: block !important;
+    z-index: 10 !important;
+}
+
+.mobile-lesson-item.completed .play-icon:after {
+    content: '\2713' !important;
+    color: white !important;
+    font-size: 9px !important;
+    font-weight: bold !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    display: block !important;
+    z-index: 10 !important;
+}
+
+/* Dark theme support */
+.dark-theme .completion-checkbox input:checked + .checkbox-slider {
+    background-color: #10b981;
+}
+
+.dark-theme .progress-stats {
+    background: var(--bg-tertiary);
+    border-color: var(--border-primary);
+}
+
+/* ===================================
+   THEME TOGGLE
+   =================================== */
+.theme-toggle {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+.theme-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e2e8f0;
+    transition: all 0.3s ease;
+    border-radius: 14px;
+    border: 1px solid var(--border-secondary);
+}
+.toggle-slider:hover { background-color: #cbd5e1; }
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 2px;
+    top: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.dark-theme .toggle-slider {
+    background-color: var(--blue-primary);
+    border-color: var(--blue-primary);
+}
+.dark-theme .toggle-slider:hover { background-color: #0037b8; }
+.dark-theme .toggle-slider:before {
+    transform: translateX(24px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================================
+   MOBILE STYLES
+   =================================== */
+.mobile-toggle-slider {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+    background-color: white !important;
+    border-radius: 13px;
+    border: 1px solid var(--border-secondary);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.mobile-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    top: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-toggle-slider.active {
+    background-color: #10b981 !important;
+    border-color: #10b981 !important;
+}
+
+.mobile-toggle-slider.active:before {
+    transform: translateX(24px);
+}
+
+.mobile-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-primary);
+    box-shadow: 0 4px 6px var(--shadow-primary);
+    z-index: 50;
+    transition: background-color 0.3s ease;
+}
+.mobile-nav.active { display: block; }
+.mobile-nav a {
+    display: block;
+    padding: 1rem 2rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid var(--bg-tertiary);
+    transition: background 0.2s;
+}
+.mobile-nav a:hover {
+    background: var(--bg-tertiary);
+    color: var(--blue-primary);
+}
+
+.mobile-lessons-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-weight: 600;
+    align-items: center;
+    gap: 0.5rem;
+}
+.mobile-lessons-toggle .arrow {
+    transition: transform 0.2s;
+    font-size: 0.8rem;
+}
+.mobile-lessons-toggle.active .arrow {
+    transform: rotate(-180deg);
+}
+
+.mobile-lessons-dropdown {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-primary);
+    box-shadow: 0 4px 6px var(--shadow-primary);
+    z-index: 50;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+    transition: background-color 0.3s ease;
+}
+.mobile-lessons-dropdown.active { display: block; }
+
+/* Mobile Module Items (Advanced Mode) */
+.mobile-module-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-primary);
+    background: var(--bg-tertiary);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+.mobile-module-item:hover {
+    background: var(--bg-quaternary);
+    color: var(--text-primary);
+}
+.mobile-module-item.expanded {
+    background: var(--bg-quaternary);
+    border-bottom: 2px solid var(--blue-primary);
+}
+
+.mobile-module-arrow {
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+}
+.mobile-module-item.expanded .mobile-module-arrow {
+    transform: rotate(90deg);
+}
+
+.mobile-module-lessons {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: var(--bg-secondary);
+}
+.mobile-module-lessons.expanded {
+    max-height: 1500px;
+    transition: max-height 0.3s ease-in;
+}
+
+/* Mobile Lesson Items (Both Modes) */
+.mobile-lesson-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border-primary);
+    font-size: 0.9rem;
+    background: var(--bg-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    position: relative;
+}
+.mobile-module-lessons .mobile-lesson-item {
+    padding-left: 3rem;
+}
+.mobile-lesson-item:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    text-decoration: none;
+}
+.mobile-lesson-item.current {
+    background: var(--blue-primary);
+    color: white;
+}
+.mobile-lesson-item .play-icon {
+    width: 14px;
+    height: 14px;
+    background: var(--blue-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 8px;
+    flex-shrink: 0;
+}
+.mobile-lesson-item.current .play-icon {
+    background: white;
+    color: var(--blue-primary);
+}
+
+/* Mobile Theme Toggle */
+#mobile-theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    border-top: 1px solid var(--border-primary);
+    margin-top: 0.5rem;
+}
+.mobile-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    margin: 0;
+}
+.mobile-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.mobile-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e2e8f0;
+    transition: all 0.3s ease;
+    border-radius: 14px;
+    border: 1px solid var(--border-secondary);
+    overflow: hidden;
+}
+.mobile-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 2px;
+    top: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-toggle-slider.active {
+    background-color: var(--blue-primary) !important;
+    border-color: var(--blue-primary) !important;
+}
+
+.mobile-toggle-slider.active:before {
+    transform: translateX(24px);
+}
+
+.mobile-toggle-slider:hover {
+    background-color: #cbd5e1;
+}
+
+.dark-theme #mobile-theme-toggle .mobile-toggle-slider {
+    background-color: var(--blue-primary);
+    border-color: var(--blue-primary);
+}
+
+.dark-theme #mobile-theme-toggle .mobile-toggle-slider:hover {
+    background-color: #0037b8;
+}
+
+.dark-theme #mobile-theme-toggle .mobile-toggle-slider:before {
+    transform: translateX(24px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme #mobile-theme-toggle input:not(:checked) ~ .mobile-toggle-slider {
+    background-color: #e2e8f0;
+    border-color: var(--border-secondary);
+}
+
+.dark-theme #mobile-theme-toggle input:not(:checked) ~ .mobile-toggle-slider:before {
+    transform: none;
+}
+
+/* ===================================
+   RESPONSIVE BREAKPOINTS
+   =================================== */
+@media (max-width: 768px) {
+    html, body { overflow-x: hidden; width: 100%; }
+    .header-container {
+        max-width: 100%;
+        padding: 0 1rem;
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        align-items: center;
+        gap: 1rem;
+    }
+    .logo { justify-self: start; }
+    .mobile-lessons-toggle { justify-self: center; order: 2; display: flex; }
+    .mobile-menu { justify-self: end; order: 3; display: block; }
+
+    .nav { display: none; }
+    .theme-toggle { display: none; }
+    .sidebar { display: none; }
+
+    .main {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+        box-sizing: border-box;
+    }
+
+    .content {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1.5rem 1rem !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        box-sizing: border-box;
+    }
+
+    h1 { font-size: 1.75rem; line-height: 1.3; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    p { font-size: 0.95rem; }
+
+    .video-container { margin-bottom: 1rem; }
+
+    .tab-buttons {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .tab-button {
+        flex-shrink: 0;
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .up-next { margin-top: 2rem; }
+    .next-video {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    .next-video-thumb {
+        width: 100%;
+        height: 180px;
+    }
+
+    #transcript-search-input { font-size: 16px; }
+
+    .episode-notes-content { padding: 0; }
+    .learning-objectives { padding: 0.75rem; margin: 0.75rem 0; }
+    #lesson-resources li { padding: 0.75rem; margin-bottom: 0.5rem; }
+
+    .lesson-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .lesson-completion-toggle {
+        align-self: flex-start;
+    }
+}
+
+@media (min-width: 769px) {
+    #mobile-theme-toggle { display: none; }
+}
+
+@media (max-width: 375px) {
+    .header-container { padding: 0 0.75rem; }
+    .content { padding: 1.25rem 0.75rem !important; }
+    h1 { font-size: 1.5rem; }
+}
+
+@media (min-width: 1400px) {
+    .header-container { max-width: 85%; }
+    .main { max-width: 85%; }
+    .main.sidebar-right { grid-template-columns: 1fr 420px; }
+    .main.sidebar-left { grid-template-columns: 420px 1fr; }
+}
+
+@media (min-width: 1600px) {
+    .header-container { max-width: 80%; }
+    .main { max-width: 80%; }
+    .main.sidebar-right { grid-template-columns: 1fr 450px; }
+    .main.sidebar-left { grid-template-columns: 450px 1fr; }
+}
+
+/* ===================================
+   iOS SAFARI FIXES
+   =================================== */
+@supports (-webkit-touch-callout: none) {
+    .mobile-lessons-dropdown { -webkit-overflow-scrolling: touch; }
+    .main { -webkit-box-sizing: border-box; }
+}
+
+/* ===================================
+   SIMPLE MODE OVERRIDES
+   =================================== */
+.episode-section.simple-mode {
+    margin-bottom: 0.1rem;
+    border: none;
+}
+.section-title {
+    margin-top: 0.8rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.section-title:empty { display: none; }
+
+@media (max-width: 768px) {
+    .mobile-lesson-item.simple-mode {
+        display: block;
+        padding: 1rem 2rem;
+        color: #4b5563;
+        text-decoration: none;
+        font-weight: 500;
+        border-bottom: 1px solid #f3f4f6;
+        transition: all 0.2s;
+        font-size: 0.9rem;
+    }
+    .mobile-lesson-item.simple-mode:hover {
+        background: #f9fafb;
+        color: #1f2937;
+    }
+}
+
+/* Mobile Progress Display */
+@media (max-width: 768px) {
+    .mobile-progress-display {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--blue-primary);
+        color: white;
+        text-align: center;
+        padding: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        z-index: 100;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark-theme .mobile-progress-display {
+        background-color: var(--bg-primary);
+        border-top: 1px solid var(--dark-border);
+    }
+}
+
+/* Coming Soon Content Placeholder */
+.coming-soon-placeholder {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+.coming-soon-placeholder h3 {
+    color: var(--text-tertiary);
+    margin-bottom: 1rem;
+}
+.coming-soon-placeholder p {
+    color: var(--text-quaternary);
+}
+    </style>
+
+    <!-- Theme Script - Load immediately to prevent FOUC -->
+    <script>
+        (function() {
+            try {
+                const storedTheme = localStorage.getItem('darkMode');
+                const defaultTheme = 'light'; // Configurable default
+                const isDark = storedTheme === 'true' || (storedTheme === null && defaultTheme === 'dark');
+                if (isDark) {
+                    document.documentElement.classList.add('dark-theme');
+                }
+            } catch (error) {
+                // localStorage not available, use default
+            }
+        })();
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="./" class="logo-link" id="logo-link">
+                <img src="https://joe23.com/images/Joe-Lee-Lavery-Logo-black-modern-automation.png" alt="Joe Lee - Self Host Revolution" class="logo light">
+                <img src="https://joe23.com/images/Joe-Lee-Lavery-Logo-white-modern-automation.png" alt="Joe Lee - Self Host Revolution" class="logo dark">
+            </a>
+            <nav class="nav">
+                <a href="#overview">Course Overview</a>
+                <a href="#modules">All Modules</a>
+                <a href="#resources">Resources</a>
+                <a href="#community">Community</a>
+                <a href="#support">Support</a>
+                <label class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <input type="checkbox" id="theme-toggle-checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </nav>
+            <button class="mobile-lessons-toggle" id="mobile-lessons-toggle">
+                Lessons <span class="arrow">&#9660;</span>
+            </button>
+            <button class="mobile-menu" id="mobile-menu-btn">&#9776;</button>
+        </div>
+        <nav class="mobile-nav" id="mobile-nav">
+            <a href="#overview">Course Overview</a>
+            <a href="#modules">All Modules</a>
+            <a href="#resources">Resources</a>
+            <a href="#community">Community</a>
+            <a href="#support">Support</a>
+            <div id="mobile-theme-toggle">
+                <span class="toggle-text">Dark Mode</span>
+                <label class="mobile-toggle-switch">
+                    <input type="checkbox" id="mobile-theme-toggle-checkbox">
+                    <span class="mobile-toggle-slider"></span>
+                </label>
+            </div>
+        </nav>
+        <div class="mobile-lessons-dropdown" id="mobile-lessons-dropdown">
+            <!-- Populated by JavaScript -->
+        </div>
+    </header>
+
+    <main class="main sidebar-right" id="main-container">
+        <div class="content">
+            <div class="video-container" id="video-container">
+                <img src="https://joe23.com/images/modern-automation.png" alt="Course Preview" />
+            </div>
+
+            <div class="lesson-header">
+                <div>
+                    <h1 class="font-bold" style="margin-bottom: 1rem;" id="lesson-title">Welcome to Self Host Revolution</h1>
+                    <p class="text-large" style="color: #6b7280; margin-bottom: 2rem; font-weight: 400;" id="lesson-description">
+                        Select a lesson from the sidebar to get started with your self-hosting journey.
+                    </p>
+                </div>
+                <div class="lesson-completion-toggle">
+                    <label class="completion-checkbox">
+                        <input type="checkbox" id="lesson-complete-checkbox">
+                        <span class="checkbox-slider"></span>
+                    </label>
+                    <span class="completion-label">Mark Complete</span>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="notes">Notes</button>
+                    <button class="tab-button" data-tab="transcript">Transcript</button>
+                </div>
+
+                <div class="tab-content active" id="notes">
+                    <div id="lesson-content">
+                        <p>Welcome to Self Host Revolution! Select a lesson from the sidebar to get started.</p>
+                    </div>
+
+                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e5e5e5;">
+                        <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: #1f2937;">Resources & Tools Mentioned</h4>
+                        <ul style="list-style: none; padding: 0;" id="lesson-resources">
+                            <li style="margin-bottom: 0.75rem; padding: 0.75rem 1rem; background: #f8fafc; border-radius: 6px; border-left: 3px solid #0046dd;">
+                                <a href="https://contabo.com" style="text-decoration: none; color: #0046dd; font-weight: 500;" target="_blank">Contabo VPS</a>
+                                <p style="margin: 0.25rem 0 0 0; color: #6b7280; font-size: 0.9rem;">Where to buy your $6/month server</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="transcript">
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="display: flex; gap: 1rem; margin-bottom: 1rem; align-items: center;">
+                            <input type="text" id="transcript-search-input" placeholder="Search transcript..." style="flex: 1; padding: 0.5rem 1rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.9rem; background: white; color: #4b5563;">
+                            <button id="clear-search" style="padding: 0.5rem 1rem; border: 1px solid #d1d5db; background: white; color: #4b5563; border-radius: 6px; font-size: 0.9rem; cursor: pointer;">Clear</button>
+                        </div>
+                    </div>
+
+                    <div style="max-height: 400px; overflow-y: auto; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1rem;">
+                        <ul class="transcript-list" id="transcript-content">
+                            <li class="transcript-item"><span class="transcript-timestamp">0:00</span><span class="transcript-text">Transcript will be available soon.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="up-next">
+                <h2>Up next</h2>
+                <div class="next-video" id="next-lesson">
+                    <div class="next-video-thumb">&#9658;</div>
+                    <div class="next-video-content">
+                        <h3>Loading... <span style="color: #6b7280; font-weight: 400; font-size: 0.9rem;">&bull; -- min</span></h3>
+                        <p>Loading next lesson...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside class="sidebar" id="sidebar">
+            <h3>Course Modules</h3>
+            <div id="modules-container">
+                <!-- Populated by JavaScript -->
+            </div>
+            <div class="progress-stats">
+                <div class="progress-header">
+                    <h4>&#128202; Course Progress</h4>
+                    <span class="progress-percentage" id="progress-percentage">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
+                </div>
+                <p class="progress-text" id="progress-text">
+                    <span id="completed-count">0</span> of <span id="total-count">0</span> lessons complete
+                </p>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Mobile Progress Display -->
+    <div id="mobile-progress-display" class="mobile-progress-display"></div>
+
+<!-- Load config from external file -->
+<script src="config.js"></script>
+<script>
+// ===================================
+// APPLY CONFIG DEFAULTS
+// ===================================
+// Auto-detect BASE_URL if not set in config.js
+if (!CONFIG.BASE_URL) {
+    CONFIG.BASE_URL = window.location.pathname.replace(/\/[^\/]*$/, '').replace(/\/lesson.*$/, '') || '.';
+}
+
+// ===================================
+// GLOBAL STATE
+// ===================================
+let courseData = {
+    course: null,
+    modules: [],
+    lessons: [],
+    currentLesson: null
+};
+let currentLessonId = null;
+
+// ===================================
+// ICON SYSTEM
+// ===================================
+const ICONS = {
+    play: '&#9658;',
+    'play-next': '&#9658;',
+    'chevron-right': '&#9658;',
+    'chevron-down': '&#9660;',
+    menu: '&#9776;',
+    chart: '&#128202;',
+    target: '&#127919;',
+    book: '&#128218;',
+    moon: '&#127769;',
+    sun: '&#9728;&#65039;'
+};
+
+function renderIcon(name) {
+    return ICONS[name] || '';
+}
+
+// ===================================
+// DATA LOADING
+// ===================================
+async function loadCourseData() {
+    if (CONFIG.DATA_SOURCE === 'json') {
+        return loadFromJSON();
+    } else {
+        return loadFromSupabase();
+    }
+}
+
+async function loadFromJSON() {
+    try {
+        // Build absolute path to JSON file using BASE_URL (handles /lesson/slug paths correctly)
+        const jsonPath = CONFIG.BASE_URL + '/' + CONFIG.JSON_FILE;
+
+        console.log('Loading JSON from:', jsonPath);
+
+        const response = await fetch(jsonPath);
+        if (!response.ok) {
+            throw new Error('Failed to load course data from ' + jsonPath);
+        }
+        const data = await response.json();
+
+        // Transform JSON structure to match internal format
+        courseData.course = data.course;
+        courseData.modules = data.modules.map((m, idx) => ({
+            id: m.id || idx + 1,
+            title: m.title,
+            description: m.description || '',
+            order_index: m.order_index || idx + 1,
+            course_id: 1
+        }));
+
+        // Flatten lessons from modules
+        courseData.lessons = [];
+        data.modules.forEach((module, moduleIdx) => {
+            const moduleId = module.id || moduleIdx + 1;
+            if (module.lessons) {
+                module.lessons.forEach((lesson, lessonIdx) => {
+                    courseData.lessons.push({
+                        id: lesson.id || (moduleId * 100 + lessonIdx + 1),
+                        module_id: moduleId,
+                        order_index: lesson.order_index || lessonIdx + 1,
+                        title: lesson.title,
+                        slug: lesson.slug,
+                        description: lesson.description || '',
+                        duration_minutes: lesson.duration_minutes || 10,
+                        video_url: lesson.video_url || '',
+                        thumbnail_url: lesson.thumbnail_url || '',
+                        status: lesson.status || 'available',
+                        episode_notes_markdown: lesson.notes_markdown || '',
+                        transcript_text: lesson.transcript || '',
+                        learning_objectives: lesson.learning_objectives || [],
+                        resources: lesson.resources || []
+                    });
+                });
+            }
+        });
+
+        return courseData;
+    } catch (error) {
+        console.error('Error loading JSON:', error);
+        return loadFallbackData();
+    }
+}
+
+async function loadFromSupabase() {
+    try {
+        // Fetch course
+        const courseResponse = await supabaseRequest('courses?id=eq.1&select=*');
+        if (courseResponse && courseResponse.length > 0) {
+            courseData.course = courseResponse[0];
+        }
+
+        // Fetch modules
+        const modulesResponse = await supabaseRequest('modules?course_id=eq.1&select=*&order=order_index');
+        if (modulesResponse) {
+            courseData.modules = modulesResponse;
+        }
+
+        // Fetch lessons
+        const lessonsResponse = await supabaseRequest('lessons?select=*&order=module_id,order_index');
+        if (lessonsResponse) {
+            // Filter to only lessons from our course's modules
+            const moduleIds = courseData.modules.map(m => m.id);
+            courseData.lessons = lessonsResponse.filter(l => moduleIds.includes(l.module_id));
+        }
+
+        return courseData;
+    } catch (error) {
+        console.error('Error loading from Supabase:', error);
+        return loadFallbackData();
+    }
+}
+
+async function supabaseRequest(endpoint) {
+    try {
+        const response = await fetch(CONFIG.SUPABASE_URL + '/rest/v1/' + endpoint, {
+            headers: {
+                'apikey': CONFIG.SUPABASE_KEY,
+                'Authorization': 'Bearer ' + CONFIG.SUPABASE_KEY,
+                'Content-Type': 'application/json'
+            }
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Supabase request failed:', error);
+        return null;
+    }
+}
+
+function loadFallbackData() {
+    // Fallback data if loading fails
+    courseData = {
+        course: {
+            title: 'Self Host Revolution',
+            subtitle: 'Build software products with AI on your own infrastructure',
+            instructor: 'Joe Lee',
+            image_url: 'https://joe23.com/images/modern-automation.png'
+        },
+        modules: [
+            { id: 1, title: 'Week 1: The $6 Foundation', order_index: 1, course_id: 1 }
+        ],
+        lessons: [
+            {
+                id: 1,
+                module_id: 1,
+                order_index: 1,
+                title: 'Welcome & What You\'ll Build',
+                slug: 'welcome-what-youll-build',
+                description: 'Overview of your 4-week journey',
+                duration_minutes: 8,
+                video_url: '',
+                status: 'coming-soon',
+                episode_notes_markdown: '# Welcome\n\nCourse content loading...',
+                learning_objectives: ['Understand the course roadmap'],
+                resources: []
+            }
+        ],
+        currentLesson: null
+    };
+    return courseData;
+}
+
+// ===================================
+// URL ROUTING (supports both 'path' and 'hash' modes)
+// ===================================
+function getLessonFromUrl() {
+    if (CONFIG.ROUTING_MODE === 'hash') {
+        // Hash mode: #lesson/slug or just #slug
+        const hash = window.location.hash;
+        if (hash) {
+            const hashParts = hash.substring(1).split('/');
+            if (hashParts[0] === 'lesson' && hashParts[1]) {
+                return findLessonByIdentifier(hashParts[1]);
+            }
+            if (hashParts[0] && hashParts[0] !== '') {
+                return findLessonByIdentifier(hashParts[0]);
+            }
+        }
+    } else {
+        // Path mode: /lesson/slug
+        const urlPath = window.location.pathname;
+        const pathParts = urlPath.split('/');
+        const lessonIndex = pathParts.indexOf('lesson');
+        if (lessonIndex !== -1 && pathParts[lessonIndex + 1]) {
+            return findLessonByIdentifier(pathParts[lessonIndex + 1]);
+        }
+    }
+    return null;
+}
+
+function buildLessonUrl(slug) {
+    if (CONFIG.ROUTING_MODE === 'hash') {
+        return '#lesson/' + slug;
+    } else {
+        return CONFIG.BASE_URL + '/lesson/' + slug;
+    }
+}
+
+function findLessonByIdentifier(identifier) {
+    if (!courseData.lessons || courseData.lessons.length === 0) return null;
+
+    // Try to find by slug first
+    let lesson = courseData.lessons.find(l =>
+        l.slug && l.slug.toLowerCase() === identifier.toLowerCase()
+    );
+
+    // If not found, try by ID
+    if (!lesson && !isNaN(identifier)) {
+        lesson = courseData.lessons.find(l => l.id === parseInt(identifier));
+    }
+
+    return lesson;
+}
+
+function generateSlug(title) {
+    return title
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/[\s_]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+}
+
+// ===================================
+// CONTENT PROCESSING
+// ===================================
+function convertMarkdownToHTML(markdown) {
+    if (!markdown) return '<p>No content available.</p>';
+
+    let html = markdown;
+    html = html.replace(/^### (.*$)/gm, '<h3>$1</h3>');
+    html = html.replace(/^## (.*$)/gm, '<h2>$1</h2>');
+    html = html.replace(/^# (.*$)/gm, '<h1>$1</h1>');
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+    html = html.replace(/^(\d+)\.\s+(.+$)/gm, '<oli>$2</oli>');
+    html = html.replace(/^-\s+(.+$)/gm, '<uli>$1</uli>');
+    html = html.replace(/(<oli>.*?<\/oli>\s*)+/gs, function(match) {
+        return '<ol>' + match.replace(/<oli>/g, '<li>').replace(/<\/oli>/g, '</li>') + '</ol>';
+    });
+    html = html.replace(/(<uli>.*?<\/uli>\s*)+/gs, function(match) {
+        return '<ul>' + match.replace(/<uli>/g, '<li>').replace(/<\/uli>/g, '</li>') + '</ul>';
+    });
+    html = html.replace(/\n\s*\n/g, '</p><p>');
+    html = '<p>' + html + '</p>';
+    html = html.replace(/<p>\s*<\/p>/g, '');
+    html = html.replace(/<p>(<h[1-6]>.*?<\/h[1-6]>)<\/p>/g, '$1');
+    html = html.replace(/<p>(<ol>.*?<\/ol>)<\/p>/gs, '$1');
+    html = html.replace(/<p>(<ul>.*?<\/ul>)<\/p>/gs, '$1');
+
+    return html;
+}
+
+function formatTranscript(transcriptText) {
+    if (!transcriptText) {
+        return '<li class="transcript-item"><span class="transcript-timestamp">0:00</span><span class="transcript-text">Transcript will be available soon.</span></li>';
+    }
+
+    const lines = transcriptText.split('\n');
+    let formatted = '';
+    let time = 0;
+
+    lines.forEach(function(line) {
+        line = line.trim();
+        if (!line) return;
+
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        const timestamp = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+
+        formatted += '<li class="transcript-item" data-time="' + timestamp + '" data-original-text="' + escapeHtml(line.toLowerCase()) + '">';
+        formatted += '<span class="transcript-timestamp">' + timestamp + '</span>';
+        formatted += '<span class="transcript-text">' + escapeHtml(line) + '</span>';
+        formatted += '</li>';
+
+        time += 15;
+    });
+
+    return formatted;
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// ===================================
+// VIDEO HANDLING
+// ===================================
+function detectUrlType(url) {
+    if (!url || url.trim() === '') return { type: 'none', url: null };
+
+    url = url.trim();
+
+    // YouTube detection
+    const youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+    const youtubeMatch = url.match(youtubeRegex);
+    if (youtubeMatch) {
+        return { type: 'youtube', url: 'https://www.youtube.com/embed/' + youtubeMatch[1] };
+    }
+
+    // Vimeo detection
+    const vimeoRegex = /vimeo\.com\/(\d+)/;
+    const vimeoMatch = url.match(vimeoRegex);
+    if (vimeoMatch) {
+        return { type: 'vimeo', url: 'https://player.vimeo.com/video/' + vimeoMatch[1] };
+    }
+
+    // Bunny.net detection
+    if (url.includes('bunny.net') || url.includes('b-cdn.net')) {
+        return { type: 'bunny', url: url };
+    }
+
+    // Video file detection
+    const videoExtensions = ['.mp4', '.webm', '.ogg', '.avi', '.mov', '.wmv', '.flv', '.mkv', '.m4v'];
+    if (videoExtensions.some(ext => url.toLowerCase().includes(ext))) {
+        return { type: 'video', url: url };
+    }
+
+    // Image detection
+    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.webp'];
+    if (imageExtensions.some(ext => url.toLowerCase().includes(ext))) {
+        return { type: 'image', url: url };
+    }
+
+    // Default to image
+    return { type: 'image', url: url };
+}
+
+function renderVideoContainer(urlData, title, thumbnailUrl, lessonId) {
+    if (urlData.type === 'none') {
+        const defaultImage = courseData.course?.image_url || 'https://joe23.com/images/modern-automation.png';
+        return '<img src="' + defaultImage + '" alt="Course Preview" />';
+    }
+
+    if (urlData.type === 'youtube') {
+        return '<iframe src="' + urlData.url + '" title="' + escapeHtml(title) + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    }
+
+    if (urlData.type === 'vimeo') {
+        return '<iframe src="' + urlData.url + '" title="' + escapeHtml(title) + '" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+    }
+
+    if (urlData.type === 'bunny' || urlData.type === 'video') {
+        const videoId = 'video-' + (lessonId || 'dynamic');
+        let videoHtml = '<video id="' + videoId + '" controls preload="metadata"';
+
+        if (CONFIG.USE_VIDEO_THUMBNAILS && thumbnailUrl && !CONFIG.AUTO_GENERATE_THUMBNAILS) {
+            videoHtml += ' poster="' + thumbnailUrl + '"';
+        }
+
+        videoHtml += '><source src="' + urlData.url + '">Your browser does not support video.</video>';
+
+        if (CONFIG.AUTO_GENERATE_THUMBNAILS) {
+            setTimeout(function() { generateVideoThumbnail(videoId, urlData.url); }, 100);
+        }
+
+        return videoHtml;
+    }
+
+    if (urlData.type === 'image') {
+        return '<img src="' + urlData.url + '" alt="' + escapeHtml(title) + '" />';
+    }
+
+    return '<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #6b7280;">Content not available</div>';
+}
+
+function generateVideoThumbnail(videoId, videoUrl) {
+    const video = document.getElementById(videoId);
+    if (!video || !CONFIG.AUTO_GENERATE_THUMBNAILS) return;
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    video.addEventListener('loadedmetadata', function() {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const seekTime = Math.min(1, video.duration * 0.1);
+        video.currentTime = seekTime;
+    });
+
+    video.addEventListener('seeked', function() {
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const thumbnailDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+        video.poster = thumbnailDataUrl;
+        video.currentTime = 0;
+        canvas.remove();
+    }, { once: true });
+
+    video.addEventListener('error', function() {
+        console.log('Video thumbnail generation failed for:', videoUrl);
+    });
+}
+
+// ===================================
+// UI RENDERING
+// ===================================
+function renderSidebar() {
+    const container = document.getElementById('modules-container');
+    if (!container) return;
+
+    let html = '';
+    const lessonsByModule = groupLessonsByModule();
+
+    if (CONFIG.ADVANCED_COURSE_MODE) {
+        // Accordion mode
+        courseData.modules.forEach(function(module, index) {
+            const moduleLessons = lessonsByModule[module.id] || [];
+            const isCurrentModule = currentLessonId && moduleLessons.some(l => l.id === currentLessonId);
+            const isFirstModule = index === 0 && !currentLessonId;
+            const isExpanded = isCurrentModule || isFirstModule;
+
+            html += '<div class="episode-section">';
+            html += '<div class="module-header' + (isExpanded ? ' active expanded' : '') + '" data-module-id="' + module.id + '">';
+            html += '<div class="module-title">';
+            html += '<div class="module-icon">' + (index + 1) + '</div>';
+            html += '<span>' + escapeHtml(module.title) + '</span>';
+            html += '</div>';
+            html += '<span class="module-arrow">' + renderIcon('chevron-right') + '</span>';
+            html += '</div>';
+
+            html += '<div class="module-lessons' + (isExpanded ? ' expanded' : '') + '" data-module-id="' + module.id + '">';
+
+            if (moduleLessons.length > 0) {
+                html += '<ul class="episode-list">';
+                moduleLessons.forEach(function(lesson) {
+                    const isCurrent = currentLessonId === lesson.id;
+                    const isComingSoon = lesson.status === 'coming-soon';
+                    const slug = lesson.slug || lesson.id;
+
+                    html += '<li class="episode-item">';
+                    html += '<a href="' + buildLessonUrl(slug) + '" ';
+                    html += 'class="episode-link' + (isCurrent ? ' current' : '') + (isComingSoon ? ' coming-soon' : '') + '" ';
+                    html += 'data-lesson-id="' + lesson.id + '" ';
+                    html += 'data-lesson-slug="' + (lesson.slug || '') + '">';
+                    html += '<div class="play-icon">' + renderIcon('play') + '</div>';
+                    html += '<span class="lesson-title">';
+                    html += escapeHtml(lesson.title);
+                    if (isComingSoon) {
+                        html += '<span class="coming-soon-badge">Coming Soon</span>';
+                    } else {
+                        html += '<span class="lesson-duration">' + (lesson.duration_minutes || 10) + ' min</span>';
+                    }
+                    html += '</span>';
+                    html += '</a>';
+                    html += '</li>';
+                });
+                html += '</ul>';
+            } else {
+                html += '<div style="padding: 1rem; color: #9ca3af; font-size: 0.9rem; text-align: center;">Coming Soon</div>';
+            }
+
+            html += '</div>';
+            html += '</div>';
+        });
+    } else {
+        // Simple flat mode
+        courseData.modules.forEach(function(module) {
+            const moduleLessons = lessonsByModule[module.id] || [];
+
+            html += '<div class="episode-section simple-mode">';
+            html += '<div class="section-title">' + escapeHtml(module.title).toUpperCase() + '</div>';
+            html += '<ul class="episode-list">';
+
+            moduleLessons.forEach(function(lesson) {
+                const isCurrent = currentLessonId === lesson.id;
+                const isComingSoon = lesson.status === 'coming-soon';
+                const slug = lesson.slug || lesson.id;
+
+                html += '<li class="episode-item">';
+                html += '<a href="' + buildLessonUrl(slug) + '" ';
+                html += 'class="episode-link' + (isCurrent ? ' current' : '') + (isComingSoon ? ' coming-soon' : '') + '" ';
+                html += 'data-lesson-id="' + lesson.id + '" ';
+                html += 'data-lesson-slug="' + (lesson.slug || '') + '">';
+                html += '<div class="play-icon">' + renderIcon('play') + '</div>';
+                html += '<span class="lesson-title">';
+                html += escapeHtml(lesson.title);
+                html += '<span class="lesson-duration">' + (lesson.duration_minutes || 10) + ' min</span>';
+                html += '</span>';
+                html += '</a>';
+                html += '</li>';
+            });
+
+            html += '</ul>';
+            html += '</div>';
+        });
+    }
+
+    container.innerHTML = html;
+
+    // Update total count
+    const totalCount = document.getElementById('total-count');
+    if (totalCount) {
+        totalCount.textContent = courseData.lessons.length;
+    }
+}
+
+function renderMobileDropdown() {
+    const dropdown = document.getElementById('mobile-lessons-dropdown');
+    if (!dropdown) return;
+
+    let html = '';
+    const lessonsByModule = groupLessonsByModule();
+
+    if (CONFIG.ADVANCED_COURSE_MODE) {
+        courseData.modules.forEach(function(module) {
+            const moduleLessons = lessonsByModule[module.id] || [];
+            if (moduleLessons.length === 0) return;
+
+            html += '<div class="mobile-module-item" data-module-id="' + module.id + '">';
+            html += '<span>' + escapeHtml(module.title) + '</span>';
+            html += '<span class="mobile-module-arrow">' + renderIcon('chevron-right') + '</span>';
+            html += '</div>';
+
+            html += '<div class="mobile-module-lessons" data-module-id="' + module.id + '">';
+            moduleLessons.forEach(function(lesson) {
+                const isCurrent = currentLessonId === lesson.id;
+                const slug = lesson.slug || lesson.id;
+
+                html += '<a href="' + buildLessonUrl(slug) + '" ';
+                html += 'class="mobile-lesson-item' + (isCurrent ? ' current' : '') + '" ';
+                html += 'data-lesson-id="' + lesson.id + '">';
+                html += '<div class="play-icon">' + renderIcon('play') + '</div>';
+                html += escapeHtml(lesson.title);
+                html += '</a>';
+            });
+            html += '</div>';
+        });
+    } else {
+        courseData.modules.forEach(function(module) {
+            const moduleLessons = lessonsByModule[module.id] || [];
+            moduleLessons.forEach(function(lesson) {
+                const isCurrent = currentLessonId === lesson.id;
+                const slug = lesson.slug || lesson.id;
+
+                html += '<a href="' + buildLessonUrl(slug) + '" ';
+                html += 'class="mobile-lesson-item simple-mode' + (isCurrent ? ' current' : '') + '" ';
+                html += 'data-lesson-id="' + lesson.id + '">';
+                html += escapeHtml(lesson.title);
+                html += '</a>';
+            });
+        });
+    }
+
+    dropdown.innerHTML = html;
+}
+
+function groupLessonsByModule() {
+    const grouped = {};
+    courseData.lessons.forEach(function(lesson) {
+        if (!grouped[lesson.module_id]) {
+            grouped[lesson.module_id] = [];
+        }
+        grouped[lesson.module_id].push(lesson);
+    });
+    return grouped;
+}
+
+// ===================================
+// LESSON LOADING
+// ===================================
+function loadLesson(lessonId) {
+    const lesson = courseData.lessons.find(l => l.id === lessonId);
+    if (!lesson) return;
+
+    currentLessonId = lessonId;
+    courseData.currentLesson = lesson;
+
+    // Check if coming soon
+    if (lesson.status === 'coming-soon') {
+        renderComingSoonLesson(lesson);
+        return;
+    }
+
+    // Update title and description
+    const titleEl = document.getElementById('lesson-title');
+    if (titleEl) titleEl.textContent = lesson.title;
+
+    const descEl = document.getElementById('lesson-description');
+    if (descEl) descEl.textContent = lesson.description || 'No description available';
+
+    // Update video
+    const videoContainer = document.getElementById('video-container');
+    if (videoContainer) {
+        const urlData = detectUrlType(lesson.video_url);
+        videoContainer.innerHTML = renderVideoContainer(urlData, lesson.title, lesson.thumbnail_url, lesson.id);
+    }
+
+    // Update content
+    const contentEl = document.getElementById('lesson-content');
+    if (contentEl) {
+        let content = '<div class="episode-notes-content">';
+        content += convertMarkdownToHTML(lesson.episode_notes_markdown || '');
+        content += '</div>';
+
+        // Add learning objectives
+        if (lesson.learning_objectives && lesson.learning_objectives.length > 0) {
+            content += '<div class="learning-objectives">';
+            content += '<h4><span class="target-icon">' + renderIcon('target') + '</span> Learning Objectives</h4>';
+            content += '<ul>';
+            lesson.learning_objectives.forEach(function(obj) {
+                content += '<li>' + escapeHtml(obj) + '</li>';
+            });
+            content += '</ul></div>';
+        }
+
+        contentEl.innerHTML = content;
+    }
+
+    // Update resources
+    const resourcesEl = document.getElementById('lesson-resources');
+    if (resourcesEl && lesson.resources) {
+        let resourcesHtml = '';
+        lesson.resources.forEach(function(resource) {
+            resourcesHtml += '<li style="margin-bottom: 0.75rem; padding: 0.75rem 1rem; background: #f8fafc; border-radius: 6px; border-left: 3px solid #0046dd;">';
+            resourcesHtml += '<a href="' + escapeHtml(resource.url) + '" style="text-decoration: none; color: #0046dd; font-weight: 500;" target="_blank">';
+            resourcesHtml += escapeHtml(resource.title);
+            resourcesHtml += '</a>';
+            if (resource.description) {
+                resourcesHtml += '<p style="margin: 0.25rem 0 0 0; color: #6b7280; font-size: 0.9rem;">' + escapeHtml(resource.description) + '</p>';
+            }
+            resourcesHtml += '</li>';
+        });
+        resourcesEl.innerHTML = resourcesHtml || '<li style="padding: 0.75rem; color: #9ca3af;">No resources for this lesson.</li>';
+    }
+
+    // Update transcript
+    const transcriptEl = document.getElementById('transcript-content');
+    if (transcriptEl) {
+        transcriptEl.innerHTML = formatTranscript(lesson.transcript_text);
+        initTranscriptSearch();
+    }
+
+    // Update checkbox
+    const checkbox = document.getElementById('lesson-complete-checkbox');
+    if (checkbox) {
+        checkbox.setAttribute('data-lesson-id', lessonId);
+        checkbox.checked = LessonProgress.isCompleted(lessonId);
+    }
+
+    // Update sidebar highlighting
+    updateSidebarHighlight(lessonId);
+    updateMobileDropdown(lessonId);
+    updateUpNext(lessonId);
+    updateMetaTags(lesson);
+    LessonProgress.updateUI();
+}
+
+function renderComingSoonLesson(lesson) {
+    const titleEl = document.getElementById('lesson-title');
+    if (titleEl) titleEl.textContent = lesson.title;
+
+    const descEl = document.getElementById('lesson-description');
+    if (descEl) descEl.textContent = lesson.description || 'This lesson is coming soon!';
+
+    const videoContainer = document.getElementById('video-container');
+    if (videoContainer) {
+        const defaultImage = courseData.course?.image_url || 'https://joe23.com/images/modern-automation.png';
+        videoContainer.innerHTML = '<img src="' + defaultImage + '" alt="Coming Soon" style="filter: grayscale(50%); opacity: 0.7;" />';
+    }
+
+    const contentEl = document.getElementById('lesson-content');
+    if (contentEl) {
+        contentEl.innerHTML = '<div class="coming-soon-placeholder">' +
+            '<h3>&#128679; Coming Soon</h3>' +
+            '<p>This lesson is currently being developed and will be available soon. Check back later!</p>' +
+            '</div>';
+    }
+
+    updateSidebarHighlight(lesson.id);
+    updateMobileDropdown(lesson.id);
+}
+
+function updateSidebarHighlight(lessonId) {
+    const links = document.querySelectorAll('.episode-link');
+    links.forEach(function(link) {
+        link.classList.remove('current');
+        if (parseInt(link.getAttribute('data-lesson-id')) === lessonId) {
+            link.classList.add('current');
+        }
+    });
+
+    // Expand the correct module in accordion mode
+    if (CONFIG.ADVANCED_COURSE_MODE) {
+        const lesson = courseData.lessons.find(l => l.id === lessonId);
+        if (lesson) {
+            const headers = document.querySelectorAll('.module-header');
+            const lessons = document.querySelectorAll('.module-lessons');
+
+            headers.forEach(h => h.classList.remove('active', 'expanded'));
+            lessons.forEach(l => l.classList.remove('expanded'));
+
+            const currentHeader = document.querySelector('.module-header[data-module-id="' + lesson.module_id + '"]');
+            const currentLessons = document.querySelector('.module-lessons[data-module-id="' + lesson.module_id + '"]');
+
+            if (currentHeader) currentHeader.classList.add('active', 'expanded');
+            if (currentLessons) currentLessons.classList.add('expanded');
+        }
+    }
+}
+
+function updateMobileDropdown(lessonId) {
+    const links = document.querySelectorAll('.mobile-lesson-item');
+    links.forEach(function(link) {
+        link.classList.remove('current');
+        if (parseInt(link.getAttribute('data-lesson-id')) === lessonId) {
+            link.classList.add('current');
+        }
+    });
+}
+
+function getNextLesson(currentId) {
+    const sortedLessons = [...courseData.lessons].sort((a, b) => {
+        if (a.module_id !== b.module_id) return a.module_id - b.module_id;
+        return (a.order_index || 0) - (b.order_index || 0);
+    });
+
+    const currentIndex = sortedLessons.findIndex(l => l.id === currentId);
+    if (currentIndex === -1 || currentIndex === sortedLessons.length - 1) return null;
+    return sortedLessons[currentIndex + 1];
+}
+
+function updateUpNext(currentId) {
+    const upNextEl = document.getElementById('next-lesson');
+    if (!upNextEl) return;
+
+    const nextLesson = getNextLesson(currentId);
+
+    if (!nextLesson) {
+        upNextEl.innerHTML = '<div class="next-video-thumb">&#127881;</div>' +
+            '<div class="next-video-content">' +
+            '<h3>Course Complete! <span style="color: #6b7280; font-weight: 400; font-size: 0.9rem;">&bull; Well done!</span></h3>' +
+            '<p>Congratulations! You\'ve completed all available lessons.</p>' +
+            '</div>';
+        upNextEl.style.cursor = 'default';
+        upNextEl.onclick = null;
+        return;
+    }
+
+    const isComingSoon = nextLesson.status === 'coming-soon';
+    upNextEl.innerHTML = '<div class="next-video-thumb"' + (isComingSoon ? ' style="opacity: 0.5;"' : '') + '>' + renderIcon('play-next') + '</div>' +
+        '<div class="next-video-content">' +
+        '<h3>' + escapeHtml(nextLesson.title) + ' <span style="color: #6b7280; font-weight: 400; font-size: 0.9rem;">&bull; ' +
+        (isComingSoon ? 'Coming Soon' : (nextLesson.duration_minutes || 10) + ' min') + '</span></h3>' +
+        '<p>' + escapeHtml(nextLesson.description || 'Continue your journey with the next lesson.') + '</p>' +
+        '</div>';
+
+    upNextEl.style.cursor = 'pointer';
+    upNextEl.onclick = function() {
+        navigateToLesson(nextLesson.id, nextLesson.slug || nextLesson.id);
+    };
+}
+
+function updateMetaTags(lesson) {
+    if (!lesson) return;
+
+    const title = lesson.title + ' - ' + (courseData.course?.title || 'Course') + ' | Joe Lee';
+    const description = lesson.description || 'Learn with this comprehensive course.';
+    const slug = lesson.slug || lesson.id;
+    const url = window.location.origin + window.location.pathname.split('#')[0] + (CONFIG.ROUTING_MODE === 'hash' ? '#lesson/' + slug : '');
+    const image = lesson.thumbnail_url || courseData.course?.image_url || '';
+
+    document.title = title;
+
+    updateMetaTag('name', 'title', title);
+    updateMetaTag('name', 'description', description);
+    updateMetaTag('property', 'og:title', title);
+    updateMetaTag('property', 'og:description', description);
+    updateMetaTag('property', 'og:url', url);
+    updateMetaTag('property', 'og:image', image);
+    updateMetaTag('property', 'twitter:title', title);
+    updateMetaTag('property', 'twitter:description', description);
+    updateMetaTag('property', 'twitter:url', url);
+    updateMetaTag('property', 'twitter:image', image);
+
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.href = url;
+}
+
+function updateMetaTag(attribute, name, content) {
+    const meta = document.querySelector('meta[' + attribute + '="' + name + '"]');
+    if (meta) meta.content = content;
+}
+
+// ===================================
+// NAVIGATION
+// ===================================
+function navigateToLesson(lessonId, identifier) {
+    const lesson = courseData.lessons.find(l => l.id === lessonId);
+    if (!lesson) return;
+
+    if (CONFIG.ROUTING_MODE === 'hash') {
+        window.location.hash = 'lesson/' + identifier;
+    } else {
+        const url = CONFIG.BASE_URL + '/lesson/' + identifier;
+        history.pushState({ lessonId: lessonId, identifier: identifier }, '', url);
+    }
+    loadLesson(lessonId);
+}
+
+// ===================================
+// EVENT HANDLERS
+// ===================================
+function initTabs() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            tabButtons.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+
+            this.classList.add('active');
+            const tabId = this.getAttribute('data-tab');
+            const targetTab = document.getElementById(tabId);
+            if (targetTab) targetTab.classList.add('active');
+        });
+    });
+}
+
+function initSidebar() {
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('.episode-link');
+        if (link) {
+            e.preventDefault();
+            const lessonId = parseInt(link.getAttribute('data-lesson-id'));
+            const lessonSlug = link.getAttribute('data-lesson-slug');
+            if (lessonId) {
+                navigateToLesson(lessonId, lessonSlug || lessonId);
+            }
+        }
+    });
+}
+
+function initModuleAccordion() {
+    document.addEventListener('click', function(e) {
+        const header = e.target.closest('.module-header');
+        if (header) {
+            const moduleId = header.getAttribute('data-module-id');
+            const moduleLessons = document.querySelector('.module-lessons[data-module-id="' + moduleId + '"]');
+            const wasActive = header.classList.contains('active');
+
+            // Close all
+            document.querySelectorAll('.module-header').forEach(h => h.classList.remove('active', 'expanded'));
+            document.querySelectorAll('.module-lessons').forEach(ml => ml.classList.remove('expanded'));
+
+            // Open if wasn't active
+            if (!wasActive) {
+                header.classList.add('active', 'expanded');
+                if (moduleLessons) moduleLessons.classList.add('expanded');
+            }
+        }
+    });
+}
+
+function initMobile() {
+    const mobileButton = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    if (mobileButton && mobileNav) {
+        mobileButton.addEventListener('click', function() {
+            mobileNav.classList.toggle('active');
+        });
+    }
+}
+
+function initMobileLessonsDropdown() {
+    const toggle = document.getElementById('mobile-lessons-toggle');
+    const dropdown = document.getElementById('mobile-lessons-dropdown');
+
+    if (!toggle || !dropdown) return;
+
+    toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggle.classList.toggle('active');
+        dropdown.classList.toggle('active');
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+            toggle.classList.remove('active');
+            dropdown.classList.remove('active');
+
+            // Reset module expansions
+            document.querySelectorAll('.mobile-module-item').forEach(item => item.classList.remove('expanded'));
+            document.querySelectorAll('.mobile-module-lessons').forEach(lessons => lessons.classList.remove('expanded'));
+        }
+    });
+
+    // Mobile module accordion
+    dropdown.addEventListener('click', function(e) {
+        const moduleItem = e.target.closest('.mobile-module-item');
+        if (moduleItem) {
+            e.stopPropagation();
+            const moduleId = moduleItem.getAttribute('data-module-id');
+            const moduleLessons = document.querySelector('.mobile-module-lessons[data-module-id="' + moduleId + '"]');
+            const wasExpanded = moduleItem.classList.contains('expanded');
+
+            document.querySelectorAll('.mobile-module-item').forEach(mi => mi.classList.remove('expanded'));
+            document.querySelectorAll('.mobile-module-lessons').forEach(ml => ml.classList.remove('expanded'));
+
+            if (!wasExpanded) {
+                moduleItem.classList.add('expanded');
+                if (moduleLessons) moduleLessons.classList.add('expanded');
+            }
+            return;
+        }
+
+        const lessonItem = e.target.closest('.mobile-lesson-item');
+        if (lessonItem) {
+            e.preventDefault();
+            const lessonId = parseInt(lessonItem.getAttribute('data-lesson-id'));
+            if (lessonId) {
+                const lesson = courseData.lessons.find(l => l.id === lessonId);
+                const identifier = lesson ? (lesson.slug || lesson.id) : lessonId;
+                navigateToLesson(lessonId, identifier);
+                toggle.classList.remove('active');
+                dropdown.classList.remove('active');
+            }
+        }
+    });
+}
+
+function initTranscriptSearch() {
+    const searchInput = document.getElementById('transcript-search-input');
+    const clearButton = document.getElementById('clear-search');
+
+    if (!searchInput || !clearButton) return;
+
+    function performSearch(searchTerm) {
+        searchTerm = searchTerm.toLowerCase().trim();
+        const transcriptItems = document.querySelectorAll('.transcript-item');
+
+        transcriptItems.forEach(function(item) {
+            const originalText = item.getAttribute('data-original-text');
+            const textSpan = item.querySelector('.transcript-text');
+
+            if (!searchTerm) {
+                item.classList.remove('hidden');
+                if (textSpan) textSpan.innerHTML = textSpan.textContent;
+            } else if (originalText && originalText.includes(searchTerm)) {
+                item.classList.remove('hidden');
+                if (textSpan) {
+                    const regex = new RegExp('(' + searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+                    textSpan.innerHTML = textSpan.textContent.replace(regex, '<span class="highlight">$1</span>');
+                }
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    }
+
+    searchInput.addEventListener('input', function(e) {
+        performSearch(e.target.value);
+    });
+
+    clearButton.addEventListener('click', function() {
+        searchInput.value = '';
+        performSearch('');
+    });
+}
+
+function initThemeToggle() {
+    const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
+    const mobileThemeToggleCheckbox = document.getElementById('mobile-theme-toggle-checkbox');
+    const mobileToggleSlider = document.querySelector('#mobile-theme-toggle .mobile-toggle-slider');
+    const html = document.documentElement;
+
+    const storedTheme = localStorage.getItem('darkMode');
+    const isDarkMode = storedTheme === 'true' || (storedTheme === null && CONFIG.DEFAULT_THEME_MODE === 'dark');
+
+    if (isDarkMode) {
+        html.classList.add('dark-theme');
+        if (themeToggleCheckbox) themeToggleCheckbox.checked = true;
+        if (mobileThemeToggleCheckbox) mobileThemeToggleCheckbox.checked = true;
+        if (mobileToggleSlider) mobileToggleSlider.classList.add('active');
+
+        const toggleText = document.querySelector('#mobile-theme-toggle .toggle-text');
+        if (toggleText) toggleText.textContent = 'Light Mode';
+    }
+
+    function toggleDarkMode() {
+        const isDark = html.classList.toggle('dark-theme');
+        localStorage.setItem('darkMode', isDark.toString());
+
+        if (themeToggleCheckbox) themeToggleCheckbox.checked = isDark;
+        if (mobileThemeToggleCheckbox) mobileThemeToggleCheckbox.checked = isDark;
+
+        if (mobileToggleSlider) {
+            mobileToggleSlider.classList.toggle('active', isDark);
+        }
+
+        const toggleText = document.querySelector('#mobile-theme-toggle .toggle-text');
+        if (toggleText) toggleText.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    }
+
+    if (themeToggleCheckbox) {
+        themeToggleCheckbox.addEventListener('change', toggleDarkMode);
+    }
+
+    if (mobileThemeToggleCheckbox) {
+        mobileThemeToggleCheckbox.addEventListener('change', function() {
+            toggleDarkMode();
+            const mobileNav = document.getElementById('mobile-nav');
+            if (mobileNav) mobileNav.classList.remove('active');
+        });
+    }
+}
+
+// Browser back/forward support
+if (CONFIG.ROUTING_MODE === 'hash') {
+    window.addEventListener('hashchange', function() {
+        const lesson = getLessonFromUrl();
+        if (lesson && lesson.id !== currentLessonId) {
+            loadLesson(lesson.id);
+            updateSidebarHighlight(lesson.id);
+            updateMobileDropdown(lesson.id);
+        }
+    });
+} else {
+    window.addEventListener('popstate', function(event) {
+        if (event.state && event.state.lessonId) {
+            loadLesson(event.state.lessonId);
+            updateSidebarHighlight(event.state.lessonId);
+            updateMobileDropdown(event.state.lessonId);
+        }
+    });
+}
+
+// ===================================
+// LESSON PROGRESS SYSTEM
+// ===================================
+const LessonProgress = {
+    storageKey: 'course_completed_lessons',
+
+    getCompleted: function() {
+        try {
+            const stored = localStorage.getItem(this.storageKey);
+            return stored ? JSON.parse(stored) : [];
+        } catch (e) {
+            return [];
+        }
+    },
+
+    setCompleted: function(lessonIds) {
+        try {
+            localStorage.setItem(this.storageKey, JSON.stringify(lessonIds));
+        } catch (e) {
+            console.error('Error saving progress:', e);
+        }
+    },
+
+    toggleLesson: function(lessonId) {
+        const completed = this.getCompleted();
+        const index = completed.indexOf(lessonId);
+
+        if (index === -1) {
+            completed.push(lessonId);
+        } else {
+            completed.splice(index, 1);
+        }
+
+        this.setCompleted(completed);
+        this.updateUI();
+    },
+
+    isCompleted: function(lessonId) {
+        return this.getCompleted().includes(lessonId);
+    },
+
+    calculateProgress: function() {
+        const totalLessons = courseData.lessons ? courseData.lessons.length : 0;
+        const completedCount = this.getCompleted().length;
+
+        if (totalLessons === 0) return { percentage: 0, completed: 0, total: 0 };
+
+        const percentage = Math.round((completedCount / totalLessons) * 100);
+        return { percentage, completed: completedCount, total: totalLessons };
+    },
+
+    updateUI: function() {
+        const progress = this.calculateProgress();
+
+        // Update progress bar
+        const progressFill = document.getElementById('progress-fill');
+        const progressPercentage = document.getElementById('progress-percentage');
+        const completedCount = document.getElementById('completed-count');
+
+        if (progressFill) progressFill.style.width = progress.percentage + '%';
+        if (progressPercentage) progressPercentage.textContent = progress.percentage + '%';
+        if (completedCount) completedCount.textContent = progress.completed;
+
+        // Update lesson indicators
+        const completed = this.getCompleted();
+
+        document.querySelectorAll('.episode-link').forEach(function(link) {
+            const lessonId = parseInt(link.getAttribute('data-lesson-id'));
+            link.classList.toggle('completed', completed.includes(lessonId));
+        });
+
+        document.querySelectorAll('.mobile-lesson-item').forEach(function(item) {
+            const lessonId = parseInt(item.getAttribute('data-lesson-id'));
+            item.classList.toggle('completed', completed.includes(lessonId));
+        });
+
+        // Update checkbox
+        const checkbox = document.getElementById('lesson-complete-checkbox');
+        if (checkbox && currentLessonId) {
+            checkbox.checked = this.isCompleted(currentLessonId);
+        }
+
+        this.updateMobileProgress();
+    },
+
+    updateMobileProgress: function() {
+        const progress = this.calculateProgress();
+        let mobileProgressDisplay = document.getElementById('mobile-progress-display');
+
+        if (mobileProgressDisplay) {
+            mobileProgressDisplay.innerHTML =
+                '<div class="progress-header">' +
+                '<h4>Your Progress</h4>' +
+                '<span class="progress-percentage">' + progress.percentage + '%</span>' +
+                '</div>' +
+                '<div class="progress-bar">' +
+                '<div class="progress-fill" style="width: ' + progress.percentage + '%"></div>' +
+                '</div>' +
+                '<div class="progress-text">' + progress.completed + ' of ' + progress.total + ' lessons completed</div>';
+
+            mobileProgressDisplay.style.display = window.innerWidth < 768 ? 'block' : 'none';
+        }
+    },
+
+    init: function() {
+        const checkbox = document.getElementById('lesson-complete-checkbox');
+        if (checkbox) {
+            checkbox.addEventListener('change', (e) => {
+                const lessonId = parseInt(e.target.getAttribute('data-lesson-id'));
+                if (lessonId) {
+                    this.toggleLesson(lessonId);
+                }
+            });
+        }
+
+        window.addEventListener('resize', () => {
+            const mobileProgressDisplay = document.getElementById('mobile-progress-display');
+            if (mobileProgressDisplay) {
+                mobileProgressDisplay.style.display = window.innerWidth < 768 ? 'block' : 'none';
+            }
+        });
+
+        this.updateUI();
+    }
+};
+
+// ===================================
+// INITIALIZATION
+// ===================================
+async function init() {
+    // Apply sidebar position
+    const mainContainer = document.getElementById('main-container');
+    if (mainContainer) {
+        mainContainer.classList.remove('sidebar-left', 'sidebar-right');
+        mainContainer.classList.add('sidebar-' + CONFIG.SIDEBAR_POSITION);
+    }
+
+    // Set logo link to course home (BASE_URL)
+    const logoLink = document.getElementById('logo-link');
+    if (logoLink) {
+        logoLink.href = CONFIG.BASE_URL + '/';
+    }
+
+    // Load course data
+    await loadCourseData();
+
+    // Render UI
+    renderSidebar();
+    renderMobileDropdown();
+
+    // Initialize event handlers
+    initTabs();
+    initSidebar();
+    initModuleAccordion();
+    initMobile();
+    initMobileLessonsDropdown();
+    initThemeToggle();
+    LessonProgress.init();
+
+    // Load initial lesson
+    let initialLesson = getLessonFromUrl();
+    if (!initialLesson && courseData.lessons.length > 0) {
+        initialLesson = courseData.lessons[0];
+    }
+
+    if (initialLesson) {
+        currentLessonId = initialLesson.id;
+        loadLesson(initialLesson.id);
+        updateSidebarHighlight(initialLesson.id);
+        updateMobileDropdown(initialLesson.id);
+
+        // Set initial history state
+        const identifier = initialLesson.slug || initialLesson.id;
+        history.replaceState({ lessonId: initialLesson.id, identifier: identifier }, '', window.location.href);
+    }
+
+    console.log('Course platform initialized');
+    console.log('Data source:', CONFIG.DATA_SOURCE);
+    console.log('Lessons loaded:', courseData.lessons.length);
+}
+
+// Start the app
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

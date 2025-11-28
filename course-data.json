@@ -1,0 +1,590 @@
+{
+  "course": {
+    "title": "Self Host Revolution",
+    "subtitle": "Build software products with AI on your own infrastructure",
+    "instructor": "Joe Lee",
+    "image": "https://joe23.com/images/modern-automation.png"
+  },
+  "modules": [
+    {
+      "id": 1,
+      "order_index": 1,
+      "title": "Week 1: The $6 Foundation",
+      "description": "Set up your own server and deploy your first website",
+      "lessons": [
+        {
+          "id": 101,
+          "order_index": 1,
+          "slug": "welcome-what-youll-build",
+          "title": "Welcome & What You'll Build",
+          "description": "Overview of your 4-week journey to building software products with AI",
+          "duration_minutes": 8,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## Welcome to Self Host Revolution\n\nIn this course, you'll learn to build software products using AI as your coding partner. By the end of these 4 weeks, you'll have:\n\n- Your own $6/month server running in the cloud\n- A professional course delivery page you built yourself\n- The skills to build more products whenever you want\n\n### What We'll Cover\n\n- **Week 1**: Server setup and basic deployment\n- **Week 2**: Developer workflow with Git\n- **Week 3**: Building the course delivery system\n- **Week 4**: Packaging and selling your product\n\n### Prerequisites\n\n- A computer with internet access\n- Basic comfort with using a computer\n- Willingness to learn and experiment\n\nNo prior coding experience required. We'll use AI tools to help us every step of the way.",
+          "transcript": "",
+          "learning_objectives": [
+            "Understand the 4-week course roadmap",
+            "Know what you'll build by the end",
+            "Set up your workspace for the journey ahead"
+          ],
+          "resources": [
+            {
+              "title": "Course Community (Telegram)",
+              "url": "https://t.me/selfhostrevolution",
+              "description": "Join the community for support and accountability"
+            }
+          ]
+        },
+        {
+          "id": 102,
+          "order_index": 2,
+          "slug": "buying-your-vps",
+          "title": "Buying Your VPS",
+          "description": "Step-by-step guide to purchasing your $6/month Contabo VPS",
+          "duration_minutes": 12,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## Buying Your VPS\n\nA VPS (Virtual Private Server) is your own computer in the cloud. It runs 24/7 and you can access it from anywhere.\n\n### Why Contabo?\n\n- Best price-to-performance ratio\n- $6/month for a capable server\n- European company with good privacy\n- No surprise billing\n\n### What You'll Get\n\n- 4 vCPU cores\n- 6 GB RAM\n- 400 GB SSD storage\n- Unlimited bandwidth\n\n### Step-by-Step Process\n\n1. Go to contabo.com\n2. Select \"VPS S\" plan\n3. Choose your region (closest to you)\n4. Select Ubuntu 22.04 as your OS\n5. Complete the checkout\n\n**Important**: Save your server IP address and root password - you'll need these next!",
+          "transcript": "",
+          "learning_objectives": [
+            "Understand what a VPS is and why you need one",
+            "Choose the right Contabo plan",
+            "Complete the purchase process",
+            "Save your server credentials securely"
+          ],
+          "resources": [
+            {
+              "title": "Contabo VPS",
+              "url": "https://contabo.com/en/vps/",
+              "description": "Where to buy your $6/month server"
+            },
+            {
+              "title": "Bitwarden Password Manager",
+              "url": "https://bitwarden.com",
+              "description": "Free password manager for storing credentials"
+            }
+          ]
+        },
+        {
+          "id": 103,
+          "order_index": 3,
+          "slug": "ssh-keys-first-connection",
+          "title": "SSH Keys & First Connection",
+          "description": "Generate SSH keys and connect to your server securely",
+          "duration_minutes": 15,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## SSH Keys & First Connection\n\nSSH (Secure Shell) is how you'll communicate with your server. SSH keys are like a super-secure password that proves you are who you say you are.\n\n### Why SSH Keys?\n\n- More secure than passwords\n- No need to type passwords each time\n- Industry standard for server access\n\n### Generating Your SSH Key\n\n**On Mac/Linux:**\n```bash\nssh-keygen -t ed25519 -C \"your_email@example.com\"\n```\n\n**On Windows (PowerShell):**\n```powershell\nssh-keygen -t ed25519 -C \"your_email@example.com\"\n```\n\n### Connecting to Your Server\n\n```bash\nssh root@YOUR_SERVER_IP\n```\n\nReplace `YOUR_SERVER_IP` with the IP address from Contabo.\n\n### Using Claude Code to Help\n\nIf you get stuck, ask Claude Code:\n- \"How do I generate an SSH key on Windows?\"\n- \"I'm getting a permission denied error, what do I do?\"",
+          "transcript": "",
+          "learning_objectives": [
+            "Understand what SSH keys are and why they're important",
+            "Generate your own SSH key pair",
+            "Connect to your server via SSH",
+            "Use Claude Code to troubleshoot connection issues"
+          ],
+          "resources": [
+            {
+              "title": "SSH Key Guide",
+              "url": "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent",
+              "description": "Detailed SSH key generation guide"
+            }
+          ]
+        },
+        {
+          "id": 104,
+          "order_index": 4,
+          "slug": "domain-ssl-setup",
+          "title": "Domain & SSL Setup",
+          "description": "Connect your domain name and secure it with SSL",
+          "duration_minutes": 18,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## Domain & SSL Setup\n\nA domain name is your address on the internet (like joe23.com). SSL (that padlock icon) keeps your site secure.\n\n### Buying a Domain\n\nRecommended registrars:\n- Namecheap\n- Cloudflare Registrar\n- Porkbun\n\n### Pointing Your Domain to Your Server\n\n1. Log into your domain registrar\n2. Find DNS settings\n3. Create an A record:\n   - Name: `@` (or your domain)\n   - Value: Your server IP\n   - TTL: 3600\n\n### Installing SSL with Certbot\n\n```bash\napt update\napt install certbot\ncertbot certonly --standalone -d yourdomain.com\n```\n\n### Using Nginx\n\n```bash\napt install nginx\n```\n\nClaude Code can help generate your Nginx configuration!",
+          "transcript": "",
+          "learning_objectives": [
+            "Choose and purchase a domain name",
+            "Configure DNS to point to your server",
+            "Install SSL certificates with Certbot",
+            "Set up Nginx as your web server"
+          ],
+          "resources": [
+            {
+              "title": "Namecheap",
+              "url": "https://namecheap.com",
+              "description": "Affordable domain registration"
+            },
+            {
+              "title": "Cloudflare Registrar",
+              "url": "https://www.cloudflare.com/products/registrar/",
+              "description": "At-cost domain registration"
+            },
+            {
+              "title": "Let's Encrypt",
+              "url": "https://letsencrypt.org",
+              "description": "Free SSL certificates"
+            }
+          ]
+        },
+        {
+          "id": 105,
+          "order_index": 5,
+          "slug": "first-html-deploy",
+          "title": "Your First HTML Deploy",
+          "description": "Deploy your first website to your new server",
+          "duration_minutes": 10,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## Your First HTML Deploy\n\nTime to put something live on the internet!\n\n### Creating Your First Page\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <title>My First Site</title>\n</head>\n<body>\n    <h1>Hello World!</h1>\n    <p>I built this with AI.</p>\n</body>\n</html>\n```\n\n### Deploying to Your Server\n\n1. Connect via SSH\n2. Navigate to web directory:\n   ```bash\n   cd /var/www/html\n   ```\n3. Create your file:\n   ```bash\n   nano index.html\n   ```\n4. Paste your HTML and save\n\n### Celebrate!\n\nVisit your domain in a browser. You just deployed your first website to YOUR server!\n\n### What's Next\n\nThis manual process works, but next week we'll learn Git - a much better way to deploy code.",
+          "transcript": "",
+          "learning_objectives": [
+            "Create a simple HTML page",
+            "Deploy files to your server via SSH",
+            "Verify your site is live on the internet",
+            "Understand the basics of web deployment"
+          ],
+          "resources": [
+            {
+              "title": "HTML Reference",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+              "description": "MDN HTML documentation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "order_index": 2,
+      "title": "Week 2: Developer Workflow + Git",
+      "description": "Learn professional development practices with Git and VS Code",
+      "lessons": [
+        {
+          "id": 201,
+          "order_index": 1,
+          "slug": "vs-code-setup",
+          "title": "VS Code Setup",
+          "description": "Configure VS Code for professional development",
+          "duration_minutes": 12,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## VS Code Setup\n\nVisual Studio Code is a free, powerful code editor. It's what most developers use today.\n\n### Installing VS Code\n\n1. Download from code.visualstudio.com\n2. Install on your computer\n3. Launch VS Code\n\n### Essential Extensions\n\n- **Claude Code** - AI assistant right in your editor\n- **Live Server** - Preview changes instantly\n- **Prettier** - Auto-format your code\n- **GitLens** - Enhanced Git features\n\n### Key Settings\n\n- Enable auto-save\n- Set your default terminal\n- Configure your theme\n\n### The Power of Claude Code\n\nWith Claude Code installed, you can:\n- Ask questions about code\n- Generate boilerplate\n- Debug errors\n- Learn as you go",
+          "transcript": "",
+          "learning_objectives": [
+            "Install and configure VS Code",
+            "Add essential extensions including Claude Code",
+            "Customize your development environment",
+            "Understand how to use AI assistance in your editor"
+          ],
+          "resources": [
+            {
+              "title": "VS Code Download",
+              "url": "https://code.visualstudio.com",
+              "description": "Download Visual Studio Code"
+            },
+            {
+              "title": "Claude Code Extension",
+              "url": "https://marketplace.visualstudio.com/items?itemName=Anthropic.claude-code",
+              "description": "AI coding assistant for VS Code"
+            }
+          ]
+        },
+        {
+          "id": 202,
+          "order_index": 2,
+          "slug": "github-basics",
+          "title": "GitHub Basics",
+          "description": "Create your GitHub account and understand repositories",
+          "duration_minutes": 10,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## GitHub Basics\n\nGitHub is where developers store and share code. Think of it as Google Drive for code, but with superpowers.\n\n### Creating Your Account\n\n1. Go to github.com\n2. Sign up (free account is fine)\n3. Verify your email\n4. Set up 2FA (two-factor authentication)\n\n### Understanding Repositories\n\nA repository (repo) is like a project folder that:\n- Tracks all changes to your files\n- Lets you go back to any previous version\n- Allows collaboration with others\n- Syncs between your computer and the cloud\n\n### Your First Repository\n\n1. Click \"New\" to create a repo\n2. Name it something meaningful\n3. Add a README file\n4. Make it public or private\n\n### The GitHub Flow\n\n1. Make changes locally\n2. Save (commit) your changes\n3. Push to GitHub\n4. Pull from GitHub to get updates",
+          "transcript": "",
+          "learning_objectives": [
+            "Create and secure your GitHub account",
+            "Understand what repositories are",
+            "Create your first repository",
+            "Grasp the basic GitHub workflow"
+          ],
+          "resources": [
+            {
+              "title": "GitHub",
+              "url": "https://github.com",
+              "description": "Create your free GitHub account"
+            },
+            {
+              "title": "GitHub Docs",
+              "url": "https://docs.github.com",
+              "description": "Official GitHub documentation"
+            }
+          ]
+        },
+        {
+          "id": 203,
+          "order_index": 3,
+          "slug": "clone-commit-push",
+          "title": "Clone, Commit, Push",
+          "description": "Master the essential Git commands",
+          "duration_minutes": 15,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## Clone, Commit, Push\n\nThese three commands are 90% of what you'll use with Git.\n\n### Clone - Get the Code\n\n```bash\ngit clone https://github.com/username/repo.git\n```\n\nThis downloads the repository to your computer.\n\n### Commit - Save Your Changes\n\n```bash\ngit add .\ngit commit -m \"Describe what you changed\"\n```\n\nA commit is like a save point in a video game.\n\n### Push - Upload to GitHub\n\n```bash\ngit push\n```\n\nThis syncs your local commits to GitHub.\n\n### The Full Workflow\n\n1. `git pull` - Get latest changes\n2. Make your edits\n3. `git add .` - Stage changes\n4. `git commit -m \"message\"` - Save locally\n5. `git push` - Upload to GitHub\n\n### When Things Go Wrong\n\nAsk Claude Code! It's excellent at:\n- Explaining Git errors\n- Suggesting fixes\n- Helping you undo mistakes",
+          "transcript": "",
+          "learning_objectives": [
+            "Clone repositories from GitHub",
+            "Make and commit changes locally",
+            "Push changes back to GitHub",
+            "Handle common Git situations"
+          ],
+          "resources": [
+            {
+              "title": "Git Cheat Sheet",
+              "url": "https://education.github.com/git-cheat-sheet-education.pdf",
+              "description": "Quick reference for Git commands"
+            }
+          ]
+        },
+        {
+          "id": 204,
+          "order_index": 4,
+          "slug": "git-deployment",
+          "title": "Git Deployment",
+          "description": "Deploy code to your server using Git",
+          "duration_minutes": 18,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## Git Deployment\n\nInstead of manually copying files, we'll set up Git on your server for easy deployments.\n\n### Why Git Deployment?\n\n- One command to deploy\n- Easy rollback if something breaks\n- Track what's live on your server\n- Professional workflow\n\n### Setting Up Your Server\n\n1. SSH into your server\n2. Install Git:\n   ```bash\n   apt install git\n   ```\n3. Clone your repo:\n   ```bash\n   cd /var/www\n   git clone https://github.com/username/repo.git html\n   ```\n\n### Deploying Updates\n\nOn your server:\n```bash\ncd /var/www/html\ngit pull\n```\n\nThat's it! Your changes are live.\n\n### The Professional Workflow\n\n1. Edit code locally\n2. Test locally\n3. Commit and push to GitHub\n4. SSH to server and `git pull`\n\nLater, we can automate step 4 with webhooks!",
+          "transcript": "",
+          "learning_objectives": [
+            "Set up Git on your server",
+            "Deploy code using git pull",
+            "Understand the Git deployment workflow",
+            "Know when and how to rollback changes"
+          ],
+          "resources": [
+            {
+              "title": "Git Installation",
+              "url": "https://git-scm.com/book/en/v2/Getting-Started-Installing-Git",
+              "description": "Official Git installation guide"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "order_index": 3,
+      "title": "Week 3: The Course Delivery System",
+      "description": "Build your own professional course delivery page",
+      "lessons": [
+        {
+          "id": 301,
+          "order_index": 1,
+          "slug": "spa-architecture-explained",
+          "title": "SPA Architecture Explained",
+          "description": "Understand how the course delivery system works",
+          "duration_minutes": 15,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## SPA Architecture Explained\n\nSPA stands for Single Page Application. It means the whole app lives in one HTML file.\n\n### Why SPA?\n\n- Fast loading - no page refreshes\n- Smooth user experience\n- Simple deployment - just upload files\n- No server-side code needed\n\n### How It Works\n\n1. Browser loads `index.html`\n2. JavaScript takes over\n3. Content changes without page reload\n4. URL updates for bookmarking/sharing\n\n### The Architecture\n\n```\nindex.html          - The main file\n├── <head>          - Styles, meta tags\n├── <body>          - HTML structure\n└── <script>        - All the JavaScript\n\ncourse-data.json    - Your course content\n```\n\n### Data Flow\n\n1. Page loads\n2. JavaScript fetches course-data.json\n3. Renders modules and lessons\n4. User clicks lesson\n5. JavaScript updates the view\n\nNo backend server required!",
+          "transcript": "",
+          "learning_objectives": [
+            "Understand what a Single Page Application is",
+            "Know the advantages of SPA architecture",
+            "See how data flows through the application",
+            "Grasp why this architecture is perfect for courses"
+          ],
+          "resources": [
+            {
+              "title": "MDN SPA Overview",
+              "url": "https://developer.mozilla.org/en-US/docs/Glossary/SPA",
+              "description": "Technical explanation of SPAs"
+            }
+          ]
+        },
+        {
+          "id": 302,
+          "order_index": 2,
+          "slug": "json-course-structure",
+          "title": "JSON Course Structure",
+          "description": "Learn how to structure your course content in JSON",
+          "duration_minutes": 12,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## JSON Course Structure\n\nJSON (JavaScript Object Notation) is how we store course data. It's human-readable and easy to edit.\n\n### The Structure\n\n```json\n{\n  \"course\": {\n    \"title\": \"Your Course Name\",\n    \"subtitle\": \"A compelling tagline\",\n    \"instructor\": \"Your Name\"\n  },\n  \"modules\": [\n    {\n      \"id\": 1,\n      \"title\": \"Module 1: Getting Started\",\n      \"lessons\": [\n        {\n          \"id\": 101,\n          \"title\": \"Welcome\",\n          \"slug\": \"welcome\",\n          \"video_url\": \"\",\n          \"status\": \"coming-soon\"\n        }\n      ]\n    }\n  ]\n}\n```\n\n### Key Fields\n\n- **id**: Unique identifier\n- **slug**: URL-friendly name\n- **status**: \"available\" or \"coming-soon\"\n- **video_url**: YouTube, Vimeo, or direct video link\n- **notes_markdown**: Lesson content in Markdown\n\n### Editing Tips\n\n- Use a JSON validator to check syntax\n- Keep slugs lowercase with hyphens\n- Test locally before deploying",
+          "transcript": "",
+          "learning_objectives": [
+            "Understand JSON syntax",
+            "Know the course data structure",
+            "Edit course content in JSON",
+            "Avoid common JSON mistakes"
+          ],
+          "resources": [
+            {
+              "title": "JSON Validator",
+              "url": "https://jsonlint.com",
+              "description": "Validate your JSON syntax"
+            },
+            {
+              "title": "JSON Tutorial",
+              "url": "https://www.w3schools.com/js/js_json_intro.asp",
+              "description": "Learn JSON basics"
+            }
+          ]
+        },
+        {
+          "id": 303,
+          "order_index": 3,
+          "slug": "building-with-claude-code",
+          "title": "Building Live with Claude Code",
+          "description": "Watch as we build features using AI assistance",
+          "duration_minutes": 25,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## Building Live with Claude Code\n\nIn this lesson, we'll build real features together using Claude Code as our coding partner.\n\n### What We'll Build\n\n- Custom progress tracking\n- Video player enhancements\n- Mobile menu improvements\n\n### The Process\n\n1. Describe what you want\n2. Let Claude Code generate code\n3. Review and test\n4. Iterate and improve\n\n### Effective Prompting\n\nGood prompt:\n> \"Add a progress bar that shows percentage of completed lessons. Store completion in localStorage. Use the existing CSS variables for styling.\"\n\nBetter prompt:\n> \"Add a progress bar showing X of Y lessons complete. When user clicks 'Mark Complete', save to localStorage. Update the progress bar. Match the existing blue color scheme.\"\n\n### Common Patterns\n\n- Ask for explanations: \"Explain how this code works\"\n- Request modifications: \"Make this responsive for mobile\"\n- Debug together: \"I'm getting this error...\"",
+          "transcript": "",
+          "learning_objectives": [
+            "Use Claude Code effectively for web development",
+            "Write better prompts for coding tasks",
+            "Iterate on generated code",
+            "Debug with AI assistance"
+          ],
+          "resources": [
+            {
+              "title": "Claude Code Documentation",
+              "url": "https://docs.anthropic.com",
+              "description": "Official Claude documentation"
+            }
+          ]
+        },
+        {
+          "id": 304,
+          "order_index": 4,
+          "slug": "ai-course-generator",
+          "title": "AI Course Generator",
+          "description": "Use AI to generate your complete course outline",
+          "duration_minutes": 15,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## AI Course Generator\n\nDon't start from a blank page! Use AI to generate your course structure.\n\n### The Generator Prompt\n\nUse this prompt with ChatGPT, Claude, or any AI:\n\n```\nYou are a course curriculum designer. Create a complete course outline for:\n\n**Course Topic:** [YOUR TOPIC]\n**Target Audience:** [WHO IS THIS FOR]\n**Number of Modules:** [4-8 recommended]\n**Lessons per Module:** [3-6 recommended]\n\nFor each lesson provide:\n- Title and slug\n- Description (2-3 sentences)\n- Duration estimate\n- Notes in Markdown (200-400 words)\n- Learning objectives (3-5 points)\n- Resources (relevant links)\n\nOutput as JSON matching the course-data.json structure.\n```\n\n### What You Get\n\n- Complete course structure\n- Lesson descriptions for marketing\n- Notes ready for recording\n- Learning objectives for students\n\n### Customization\n\n1. Generate the base structure\n2. Review and adjust\n3. Add your personal touches\n4. Fill in video URLs as you record",
+          "transcript": "",
+          "learning_objectives": [
+            "Use AI to generate course outlines",
+            "Customize generated content",
+            "Structure courses for maximum engagement",
+            "Prepare content for recording"
+          ],
+          "resources": [
+            {
+              "title": "ChatGPT",
+              "url": "https://chat.openai.com",
+              "description": "OpenAI's ChatGPT"
+            },
+            {
+              "title": "Claude",
+              "url": "https://claude.ai",
+              "description": "Anthropic's Claude"
+            }
+          ]
+        },
+        {
+          "id": 305,
+          "order_index": 5,
+          "slug": "customization-workshop",
+          "title": "Customization Workshop",
+          "description": "Hands-on session to customize your course page",
+          "duration_minutes": 20,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## Customization Workshop\n\nTime to make the course platform your own!\n\n### What You'll Customize\n\n1. **Colors** - CSS variables in `:root`\n2. **Logo** - Replace image URLs\n3. **Typography** - Font family and sizes\n4. **Layout** - Sidebar position, spacing\n\n### CSS Variables\n\nAll colors are in CSS variables:\n\n```css\n:root {\n    --blue-primary: #0046dd;  /* Main accent */\n    --bg-primary: #fafafa;    /* Background */\n    --text-primary: #1f2937;  /* Text color */\n}\n```\n\n### Adding Your Logo\n\n1. Upload your logo files\n2. Update the img src in the header\n3. Adjust size if needed\n\n### Changing Fonts\n\n1. Get a font from Google Fonts\n2. Add the link tag to head\n3. Update the font-family in CSS\n\n### Layout Options\n\n- `SIDEBAR_POSITION`: 'left' or 'right'\n- `ADVANCED_COURSE_MODE`: true/false\n- `DEFAULT_THEME_MODE`: 'light' or 'dark'",
+          "transcript": "",
+          "learning_objectives": [
+            "Customize colors using CSS variables",
+            "Replace logos and images",
+            "Change fonts and typography",
+            "Adjust layout options"
+          ],
+          "resources": [
+            {
+              "title": "Google Fonts",
+              "url": "https://fonts.google.com",
+              "description": "Free fonts for your site"
+            },
+            {
+              "title": "Coolors",
+              "url": "https://coolors.co",
+              "description": "Color palette generator"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "order_index": 4,
+      "title": "Week 4: Package & Sell",
+      "description": "Prepare your course for launch and start selling",
+      "lessons": [
+        {
+          "id": 401,
+          "order_index": 1,
+          "slug": "branding-your-page",
+          "title": "Branding Your Page",
+          "description": "Create a cohesive brand identity for your course",
+          "duration_minutes": 15,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## Branding Your Page\n\nGood branding builds trust and recognition.\n\n### Brand Elements\n\n1. **Logo** - Simple, memorable\n2. **Color Palette** - 2-3 main colors\n3. **Typography** - 1-2 fonts max\n4. **Voice** - How you communicate\n\n### Creating a Logo\n\nOptions:\n- Canva (free)\n- Looka (AI-generated)\n- Fiverr (hire someone)\n- Text-only logo\n\n### Color Psychology\n\n- **Blue**: Trust, professionalism\n- **Green**: Growth, money\n- **Orange**: Energy, creativity\n- **Purple**: Premium, wisdom\n\n### Typography Tips\n\n- Sans-serif for modern feel\n- Max 2 fonts total\n- Headers: Bold, distinctive\n- Body: Clean, readable\n\n### Consistency\n\nUse the same:\n- Colors across all pages\n- Logo placement\n- Tone of voice\n- Visual style",
+          "transcript": "",
+          "learning_objectives": [
+            "Define your brand identity",
+            "Choose appropriate colors",
+            "Select fonts that match your brand",
+            "Maintain consistency across your course"
+          ],
+          "resources": [
+            {
+              "title": "Canva",
+              "url": "https://canva.com",
+              "description": "Free design tool for logos and graphics"
+            },
+            {
+              "title": "Looka",
+              "url": "https://looka.com",
+              "description": "AI logo generator"
+            }
+          ]
+        },
+        {
+          "id": 402,
+          "order_index": 2,
+          "slug": "payment-integration",
+          "title": "Payment Integration",
+          "description": "Set up ThriveCart or Stripe to accept payments",
+          "duration_minutes": 20,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## Payment Integration\n\nLet's get you ready to accept money!\n\n### Option 1: ThriveCart\n\n**Pros:**\n- One-time payment ($495-695)\n- No monthly fees\n- Built-in affiliate system\n- Checkout pages included\n\n**Setup:**\n1. Purchase ThriveCart\n2. Connect Stripe/PayPal\n3. Create product\n4. Get checkout link\n\n### Option 2: Stripe Checkout\n\n**Pros:**\n- Pay as you go (2.9% + 30c)\n- No upfront cost\n- Developer-friendly\n- Global payments\n\n**Setup:**\n1. Create Stripe account\n2. Use Payment Links\n3. Or integrate with your site\n\n### Protecting Your Content\n\nOptions:\n- Password-protected page\n- Email-gated access\n- Member-only hosting\n- Third-party membership plugin\n\n### Simple Approach\n\nStart with:\n1. ThriveCart checkout page\n2. Redirect to unlisted course URL\n3. Send URL via email too",
+          "transcript": "",
+          "learning_objectives": [
+            "Choose between payment platforms",
+            "Set up ThriveCart or Stripe",
+            "Create checkout pages",
+            "Protect your paid content"
+          ],
+          "resources": [
+            {
+              "title": "ThriveCart",
+              "url": "https://thrivecart.com",
+              "description": "One-time payment shopping cart"
+            },
+            {
+              "title": "Stripe",
+              "url": "https://stripe.com",
+              "description": "Payment processing platform"
+            }
+          ]
+        },
+        {
+          "id": 403,
+          "order_index": 3,
+          "slug": "sales-page-basics",
+          "title": "Sales Page Basics",
+          "description": "Create a compelling sales page for your course",
+          "duration_minutes": 18,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## Sales Page Basics\n\nYour sales page converts visitors into customers.\n\n### The Structure\n\n1. **Headline** - Grab attention\n2. **Problem** - What's their pain?\n3. **Solution** - Your course\n4. **Benefits** - What they get\n5. **Proof** - Why trust you?\n6. **Offer** - What's included\n7. **Price** - The investment\n8. **CTA** - Buy now\n9. **Guarantee** - Reduce risk\n10. **FAQ** - Handle objections\n\n### Headlines That Work\n\n- Promise a specific outcome\n- Address their desire\n- Create curiosity\n\nExample:\n> \"Build Your Own $6 Server and Start Selling Digital Products in 4 Weeks\"\n\n### Benefits vs Features\n\n**Feature**: \"20 video lessons\"\n**Benefit**: \"Master server deployment without the confusion\"\n\n### The CTA\n\n- Clear, action-oriented\n- Above the fold\n- Repeated throughout\n- Creates urgency (when appropriate)",
+          "transcript": "",
+          "learning_objectives": [
+            "Structure a sales page effectively",
+            "Write compelling headlines",
+            "Focus on benefits over features",
+            "Create effective calls-to-action"
+          ],
+          "resources": [
+            {
+              "title": "AI Sales Page Blueprint",
+              "url": "#",
+              "description": "Bonus training on sales page creation"
+            }
+          ]
+        },
+        {
+          "id": 404,
+          "order_index": 4,
+          "slug": "launch-checklist",
+          "title": "Launch Checklist",
+          "description": "Everything you need to verify before going live",
+          "duration_minutes": 12,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## Launch Checklist\n\nDon't launch until you've checked these off!\n\n### Technical Checks\n\n- [ ] Site loads on mobile\n- [ ] All links work\n- [ ] Video plays correctly\n- [ ] Payment flow works (test purchase)\n- [ ] SSL certificate active\n- [ ] Page speed acceptable\n\n### Content Checks\n\n- [ ] No typos in headlines\n- [ ] All lessons have content\n- [ ] Resources links work\n- [ ] Course description complete\n- [ ] Instructor bio updated\n\n### Marketing Checks\n\n- [ ] Sales page live\n- [ ] Email sequence ready\n- [ ] Social posts prepared\n- [ ] Launch date set\n- [ ] Support email working\n\n### Legal Checks\n\n- [ ] Terms of service\n- [ ] Privacy policy\n- [ ] Refund policy clear\n- [ ] Cookie notice (if needed)\n\n### Post-Launch\n\n- [ ] Monitor for issues\n- [ ] Check payment notifications\n- [ ] Respond to questions\n- [ ] Celebrate! 🎉",
+          "transcript": "",
+          "learning_objectives": [
+            "Complete pre-launch verification",
+            "Test all technical elements",
+            "Prepare marketing materials",
+            "Handle legal requirements"
+          ],
+          "resources": [
+            {
+              "title": "Privacy Policy Generator",
+              "url": "https://www.termsfeed.com/privacy-policy-generator/",
+              "description": "Generate privacy policy"
+            }
+          ]
+        },
+        {
+          "id": 405,
+          "order_index": 5,
+          "slug": "whats-next",
+          "title": "What's Next",
+          "description": "Your roadmap for continued growth",
+          "duration_minutes": 10,
+          "video_url": "",
+          "thumbnail_url": "",
+          "status": "coming-soon",
+          "notes_markdown": "## What's Next\n\nCongratulations! You've built something real. Here's where to go from here.\n\n### Immediate Next Steps\n\n1. **Launch your course** - Done is better than perfect\n2. **Get feedback** - First students are invaluable\n3. **Iterate** - Improve based on feedback\n4. **Add content** - More lessons over time\n\n### Growth Opportunities\n\n- **Build in public** - Share your journey\n- **Create more products** - You have the skills now\n- **Offer services** - Consulting, setup help\n- **Build community** - Discord, Telegram, forum\n\n### Technical Upgrades\n\n- Database backend (Supabase)\n- User authentication\n- Email automation\n- Analytics tracking\n\n### Premium Option\n\nWant personalized help? Book a 2-hour co-building session:\n- We build your specific idea together\n- Live prompting with Claude Code\n- Architecture consultation\n- Recorded for your reference\n\n### Stay Connected\n\n- Join the Telegram community\n- Follow updates and new courses\n- Share your wins!\n\nYou did it. Now go build something amazing.",
+          "transcript": "",
+          "learning_objectives": [
+            "Plan your immediate next steps",
+            "Identify growth opportunities",
+            "Know when to upgrade technical stack",
+            "Stay connected with the community"
+          ],
+          "resources": [
+            {
+              "title": "Book Co-Building Session",
+              "url": "#",
+              "description": "2-hour 1-on-1 session ($697)"
+            },
+            {
+              "title": "Community",
+              "url": "https://t.me/selfhostrevolution",
+              "description": "Join the Telegram community"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
